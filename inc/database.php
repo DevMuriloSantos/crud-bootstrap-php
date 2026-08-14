@@ -16,7 +16,7 @@ function open_database() {
 
 function close_database($conn) {
 	try {
-		$conn = null;
+		$conn->close();
 	} catch (Exception $e) {
 		throw new Exception("Erro ao encerrar conexão com o banco de dados\n {$e->getMessage()}");
 	}

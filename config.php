@@ -24,3 +24,6 @@ if ( !defined('BASEURL') )
 /** caminho do arquivo de banco de dados **/
 if ( !defined('DBAPI') )
 	define("DBAPI", ABSPATH . 'inc/database.php');
+
+const HEADER_TEMPLATE = ABSPATH . "inc/header.php";
+const FOOTER_TEMPLATE = ABSPATH . "inc/footer.php";

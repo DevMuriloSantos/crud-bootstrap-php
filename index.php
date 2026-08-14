@@ -1,14 +1,49 @@
-<?php
-include "config.php";
-include DBAPI;
+<?php 
+    include 'config.php';
+    include DBAPI;
 
-try {
-    $db = open_database(); // abre o conexão com o banco
-
-    echo '<h1>Banco de Dados Conectado!</h1>';
-
-} catch (Exception $e) {
-    echo "<h2>Aconteceu um erro:\n{$e->getMessage()}</h2>";
-}
-
+    include HEADER_TEMPLATE;
+    $db = open_database(); 
 ?>
+
+<h1>Dashboard</h1>
+<hr>
+
+<?php if ($db) : ?>
+
+<div class="row">
+	<div class="col-xs-6 col-sm-3 col-md-2">
+		<a href="customers/add.php" class="btn btn-primary">
+			<div class="row">
+				<div class="col-xs-12 text-center">
+					<i class="fa fa-plus fa-5x"></i>
+				</div>
+				<div class="col-xs-12 text-center">
+					<p>Novo Cliente</p>
+				</div>
+			</div>
+		</a>
+	</div>
+
+	<div class="col-xs-6 col-sm-3 col-md-2">
+		<a href="customers" class="btn btn-default">
+			<div class="row">
+				<div class="col-xs-12 text-center">
+					<i class="fa fa-user fa-5x"></i>
+				</div>
+				<div class="col-xs-12 text-center">
+					<p>Clientes</p>
+				</div>
+			</div>
+		</a>
+	</div>
+</div>
+
+<?php else : ?>
+	<div class="alert alert-danger" role="alert">
+		<p><b>ERRO:</b> Não foi possível Conectar ao Banco de Dados!</p>
+	</div>
+
+<?php endif; ?>
+
+<?php include FOOTER_TEMPLATE; ?>
