@@ -2,7 +2,8 @@
     </main> <!-- /container -->
 
     <footer class="container">
-        <p>&copy;2026 - Web Dev Academy</p>
+        <?php $dt = new DateTime("now", new DateTimeZone("America/Sao_Paulo")); ?>
+        <p>&copy;2026 à <?= $dt->format("Y")?> - Murilo Santos e Matheus Barros</p>
     </footer>
 
     <script src="<?php echo BASEURL; ?>js/jquery-4.0.0.min.js"></script>
