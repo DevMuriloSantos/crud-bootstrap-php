@@ -14,6 +14,7 @@
 
     <style>
         body {
+            margin-top: 1.5rem;
             padding-top: 50px;
             padding-bottom: 20px;
         }
@@ -33,7 +34,7 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top container" data-bs-theme="dark">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top container mb-3" data-bs-theme="dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="<?php echo BASEURL; ?>index.php"><i class="fa-solid fa-house-chimney"></i>
                 CRUD</a>
