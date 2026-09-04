@@ -1,5 +1,5 @@
 <?php
-ob_start(); //
+ob_start(); //output buffer aberto, para não dar erro de header location
 
 include('../config.php');
 include(DBAPI);
@@ -59,7 +59,7 @@ function add()
 {
 	if (!empty($_POST['customer'])) {
 
-		// $today = date_create('now', new DateTimeZone('America/Sao_Paulo'));
+		// $today = date_create('now', new DateTimeZone('-0300'));
 		$today = new DateTime('now', new DateTimeZone('America/Sao_Paulo'));
 
 		$customer = $_POST['customer'];
@@ -69,6 +69,34 @@ function add()
 		save('customers', $customer); // 'customers' -> nome da tabela; $customer -> associative array
 		header('location: index.php'); // output buffer
 	}
+}
+
+/**
+ *	Atualizacao/Edicao de Cliente
+ */
+function edit() {
+
+  $now = date_create('now', new DateTimeZone('America/Sao_Paulo'));
+
+  if (isset($_GET['id'])) {
+
+    $id = $_GET['id'];
+
+    if (isset($_POST['customer'])) {
+
+      $customer = $_POST['customer'];
+      $customer['modified'] = $now->format("Y-m-d H:i:s");
+
+      update("customers", $id, $customer);
+      header("location: index.php");
+    } else {
+
+      global $customer;
+      $customer = find("customers", $id);
+    } 
+  } else {
+    header("location: index.php");
+  }
 }
 
 ?>
