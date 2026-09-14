@@ -99,4 +99,15 @@ function edit() {
   }
 }
 
+/**
+ *  Exclusão de um Cliente
+ */
+function delete($id = null) {
+
+  global $customer;
+  $customer = remove('customers', $id);
+
+  header("location: index.php");
+}
+
 ?>

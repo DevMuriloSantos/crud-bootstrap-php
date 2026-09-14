@@ -1,6 +1,4 @@
 <?php
-
-use Vtiful\Kernel\Format;
     include("function.php");
     index();
     include HEADER_TEMPLATE;
@@ -61,8 +59,8 @@ use Vtiful\Kernel\Format;
                                 class="fa fa-eye"></i> Visualizar</a>
                         <a href="edit.php?id=<?php echo $customer['id']; ?>" class="btn btn-sm btn-secondary"><i
                                 class="fa fa-pencil"></i> Editar</a>
-                        <a href="#" class="btn btn-sm btn-dark" data-toggle="modal" data-target="#delete-modal"
-                            data-customer="<?php echo $customer['id']; ?>">
+                        <a href="#" class="btn btn-sm btn-dark" data-bs-toggle="modal" data-bs-target="#delete-modal"
+                            data-customer="<?= $customer['id']; ?>">
                             <i class="fa fa-trash"></i> Excluir
                         </a>
                     </td>
@@ -76,4 +74,5 @@ use Vtiful\Kernel\Format;
     </tbody>
 </table>
 
+<?php include "modal.php"; ?>
 <?php include FOOTER_TEMPLATE; ?>
